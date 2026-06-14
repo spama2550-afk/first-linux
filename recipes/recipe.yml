@@ -15,8 +15,5 @@ modules:
     install:
       - micro
       - btop
-    remove:
-      - firefox
-      - firefox-langpacks
 
   - type: signing
