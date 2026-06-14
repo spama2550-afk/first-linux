@@ -1,10 +1,10 @@
-# # yaml-language-server: $schema=https://blue-build.org
+# yaml-language-server: $schema=https://blue-build.org
 name: first-linux
 description: Hardened Secureblue KDE image with NVIDIA hybrid graphics for Dell G7.
 
-# Corrected to use the explicit Fedora 41 image stream tag
+# Corrected to use the exact official secureblue release track tag format (v41)
 base-image: ghcr.io/secureblue/kde-nvidia
-image-version: 41
+image-version: v41
 
 modules:
   - type: files
