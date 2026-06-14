@@ -2,7 +2,6 @@
 name: first-linux
 description: Hardened Secureblue KDE image with NVIDIA hybrid graphics for Dell G7.
 
-# Switched to Secureblue KDE Nvidia base for privacy, security, and laptop hybrid drivers
 base-image: ghcr.io/secureblue/kde-nvidia
 image-version: latest
 
@@ -12,29 +11,12 @@ modules:
       - source: system
         destination: /
 
-  - type: dnf
-    repos:
-      copr:
-        - atim/starship
+  - type: rpm-ostree
     install:
-      packages:
-        - micro
-        - starship
-        - btop
+      - micro
+      - btop
     remove:
-      packages:
-        # Secureblue uses Trivalent; removing standard Firefox packages to avoid duplicates
-        - firefox
-        - firefox-langpacks
-
-  - type: default-flatpaks
-    configurations:
-      - notify: true
-        scope: system
-        install:
-          # Keeping default flatpaks clean and minimal
-          - org.gnome.Loupe
-      - scope: user
+      - firefox
+      - firefox-langpacks
 
   - type: signing
-
